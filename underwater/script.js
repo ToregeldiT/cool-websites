@@ -1,10 +1,14 @@
 const body = document.querySelector('body');
 const container = document.querySelector('.container');
 const size = [10, 18, 24, 32, 38, 48];
-const sound = new Audio('audio/underwater-ambience-6201.mp3');
+const sound = new Audio('underwater-ambience-6201.mp3');
 let X, Y;
 
 sound.play();
+sound.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
 
 onmousemove = function(e) {
     let mouseX = e.clientX;
